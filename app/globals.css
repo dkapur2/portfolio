@@ -1,0 +1,214 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 215 30% 12%;
+    --foreground: 210 40% 98%;
+
+    --card: 215 30% 16%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 215 30% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 100% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 215 30% 18%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 215 30% 18%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 199 89% 48%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 215 30% 20%;
+    --input: 215 30% 20%;
+    --ring: 210 100% 50%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.mountain-bg {
+  background-image: url("/images/mountain-texture.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.noise-bg {
+  position: relative;
+}
+
+.noise-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/images/noise-texture.png");
+  background-size: 200px;
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.parallax-layer {
+  will-change: transform;
+}
+
+.section-fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.section-fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #38bdf8, #0ea5e9, #0284c7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.mountain-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.mountain-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to right, #38bdf8, #0ea5e9, #0284c7);
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+}
+
+.mountain-card:hover::before {
+  transform: translateY(0);
+}
+
+.mountain-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.timeline-dot {
+  position: relative;
+}
+
+.timeline-dot::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(to right, #38bdf8, #0ea5e9);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, rgba(56, 189, 248, 0.3), rgba(2, 132, 199, 0.3));
+  transform: translateX(-50%);
+}
+
+/* Button animation styles */
+.btn-animate {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-animate:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.btn-animate:active {
+  transform: scale(1.05);
+}
+
+/* Confetti animation */
+@keyframes confetti {
+  0% {
+    box-shadow: 0 0 5px #ff1f8f, 0 0 10px #00ff95, 0 0 15px #00aeff, 0 0 20px #ffaa00;
+    transform: scale(1.1);
+  }
+  50% {
+    box-shadow: 0 0 20px #ff1f8f, 0 0 30px #00ff95, 0 0 40px #00aeff, 0 0 50px #ffaa00;
+    transform: scale(1.15);
+  }
+  100% {
+    box-shadow: 0 0 5px #ff1f8f, 0 0 10px #00ff95, 0 0 15px #00aeff, 0 0 20px #ffaa00;
+    transform: scale(1.1);
+  }
+}
+
+.confetti-animation {
+  animation: confetti 0.5s ease-in-out 4;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Reference card animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.reference-float {
+  animation: float 6s ease-in-out infinite;
+}
