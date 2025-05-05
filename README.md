@@ -9,13 +9,13 @@ Welcome to the source code for [dkapur.com](https://dkapur.com) — my personal 
 - 🧠 **Skills** – Technologies and tools I use, including React, TypeScript, Python, Java, and more.
 - 📝 **Resume** – Easily accessible resume download link.
 - 📱 **Responsive Design** – Fully optimized for mobile, tablet, and desktop.
-- 🌙 **Dark Mode** – Smooth theme toggling for better readability.
+
 
 ## 🛠️ Built With
 
 - [React.js](https://reactjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
-- [Next.js](https://nextjs.org/) *(if used)*
+- [Docker]
 - [CSS Modules / Tailwind CSS](https://tailwindcss.com/) *(depending on styling choice)*
 - [Vercel](https://vercel.com/) for deployment
 
